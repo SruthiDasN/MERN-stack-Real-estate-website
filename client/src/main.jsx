@@ -6,21 +6,20 @@ import { Auth0Provider } from '@auth0/auth0-react'
 
 
 
-const domain = import.meta.env.DOMAIN 
-const client_id = import.meta.env.CLIENT_ID
-const redirect_uri = import.meta.env.REDIRECT_URI
-const audience = import.meta.env.AUDIENCE
+const domain_i = import.meta.env.VITE_REACT_APP_DOMAIN
+const client_id = import.meta.env.VITE_REACT_APP_CLIENT_ID
+
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Auth0Provider
-      domain = {domain}
-      client_id = {client_id}
+    <Auth0Provider     
+      domain={domain_i}
+      clientId={client_id}
       authorizationParams={{
-        redirect_uri: {redirect_uri}
+        redirect_uri: "http://localhost:5173"
       }}
-      audience = {audience}
+      audience = "http://localhost:8000"
       scope = "openid profile email"
     >
       <App />
